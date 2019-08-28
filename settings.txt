@@ -1,0 +1,24 @@
+#Fast forward setting
+FAST_FORWARD=false
+
+#Screen size settings
+WINDOW_HEIGHT=720
+WINDOW_WIDTH=800
+
+#Color settings
+COLOR_MODE=green
+
+#Directory settings
+SAVE_DIRECTORY=saves/
+GAME_DIRECTORY=roms/
+LOAD_SAVE=true
+
+#Keyboard input settings
+A_KEY=Left Alt
+B_KEY=Left Ctrl
+START_KEY=Return
+SELECT_KEY=Space
+UP_KEY=Up
+DOWN_KEY=Down
+LEFT_KEY=Left
+RIGHT_KEY=Right
