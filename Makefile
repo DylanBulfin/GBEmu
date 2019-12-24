@@ -1,5 +1,5 @@
 PROJECT=emulator.out
-SOURCES=src/main.c src/cpu/load.c src/cpu/util.c src/cpu/disassembler.c src/cpu/arrays.c src/cpu/arithmetic.c src/cpu/rotations_extensions.c src/cpu/control_flow.c src/cpu/misc.c src/timing/clock.c src/timing/display.c src/interrupts/interrupts.c src/cpu/memory.c src/startup.c src/cpu/cpu.c src/graphics/graphics.c src/graphics/background.c src/timing/waiting.c src/input/input.c src/timing/timer.c src/graphics/sprites.c src/cartridge/cartridge.c src/graphics/window.c src/sound/sound.c src/settings.c
+SOURCES=src/main.c src/cpu/load.c src/cpu/util.c src/cpu/disassembler.c src/cpu/arrays.c src/cpu/arithmetic.c src/cpu/rotations_extensions.c src/cpu/control_flow.c src/cpu/misc.c src/timing/clock.c src/timing/display.c src/interrupts/interrupts.c src/cpu/memory.c src/startup.c src/cpu/cpu.c src/graphics/graphics.c src/graphics/background.c src/timing/waiting.c src/input/input.c src/timing/timer.c src/graphics/sprites.c src/cartridge/cartridge.c src/graphics/window.c src/settings.c
 LIBRARY=nope
 INCPATHS=
 LIBPATHS=
@@ -9,11 +9,9 @@ CC=gcc
 ifdef OS
 RM = del /Q
 LDFLAGS=-lmingw32 -lSDL2main -lSDL2 -lm
-PAPATH=libportaudio.dll.a
 else
 RM = rm -f
-LDFLAGS=-lSDL2main -lSDL2 -lm -lpthread -lasound
-PAPATH=libportaudio.a
+LDFLAGS=-lSDL2main -lSDL2 -lm -lpthread
 endif
 
 

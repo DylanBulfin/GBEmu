@@ -62,4 +62,5 @@ auto-save-list
 tramp
 .\#*
 
+*.gb
 *.sram
