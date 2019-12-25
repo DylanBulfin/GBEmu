@@ -117,5 +117,3 @@ void check_scanline(uint32_t new_clock, register_file_t *state) {
 	last_scanline += SCANLINE_LENGTH;
     }
 }
-
-    
