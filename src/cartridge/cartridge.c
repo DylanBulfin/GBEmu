@@ -318,6 +318,9 @@ void load_file(char *game, register_file_t *state) {
 }
 
 void switch_ram_bank(uint16_t new_bank, register_file_t *state) {
+  if(new_bank > ram_banks || new_bank > max_ram_banks) {
+    return;
+  }
   if(new_bank == curr_ram_bank) {
     return;
   }
@@ -452,8 +455,7 @@ void handle_cartridge_memory_write(uint16_t addr, uint8_t val, register_file_t *
 	max_ram_banks = 4;
       } else {
 	mbc1_mode = 0;
-	//		    printf("Switched to MBC mode 0\n");
-	switch_ram_bank(1, state);
+	switch_ram_bank(0, state);
 	max_ram_banks = 1;
       }
     }
