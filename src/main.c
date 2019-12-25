@@ -11,6 +11,8 @@
 int8_t quit = 0;
 int step = 0;
 
+extern int8_t in_bios;
+
 void cleanup(register_file_t *state) {
   write_ram_to_file();
     

@@ -13,6 +13,8 @@
 
 int8_t in_bios = -1;
 
+extern int8_t quit;
+
 void set_startup_values(register_file_t *state) {
     A = 0x01;
     SET_FLAGS(0xb0);
@@ -66,7 +68,7 @@ void run_bios(register_file_t *state) {
     memcpy(temp, state->memory, 0x100);
     memcpy(state->memory, bios, 0x100);
     
-    while(PC < 0x100) {
+    while(PC < 0x100 && !quit) {
 	run_instruction(state);
     }
     

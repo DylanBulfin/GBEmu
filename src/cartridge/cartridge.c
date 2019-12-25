@@ -30,7 +30,7 @@ uint8_t has_battery = 0;
 
 uint8_t ram_enabled = 0;
 
-uint8_t ONE = 1;
+uint8_t ONE = 0xff;
 
 void print_cart_range(uint32_t start_addr, uint32_t end_addr) {
   printf("         x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xa xb xc xd xe xf");
@@ -218,6 +218,9 @@ void set_mbc_values() {
   case 0x07:
     rom_banks = 256;
     break;
+  case 0x08:
+    rom_banks = 512;
+    break;
   case 0x52:
     rom_banks = 72;
     break;
@@ -228,7 +231,6 @@ void set_mbc_values() {
     rom_banks = 96;
     break;
   default:
-    printf("This MBC type: 0x%02x, is not supported!\n", MEM_CONTROLLER_TYPE);
     exit(1);
   }
 
@@ -450,7 +452,6 @@ void handle_cartridge_memory_write(uint16_t addr, uint8_t val, register_file_t *
     } else if(addr >= 0x6000 && addr < 0x8000) {
       if(val & 0x1) {
 	mbc1_mode = 1;
-	//		    printf("Switched to MBC mode 1\n");
 	switch_rom_bank(curr_rom_bank & 0x1f, state);
 	max_ram_banks = 4;
       } else {
@@ -518,6 +519,7 @@ void handle_cartridge_memory_write(uint16_t addr, uint8_t val, register_file_t *
       }
     } else if(addr >= 0x3000 && addr < 0x4000) {
       if((((val & 0x1) << 8) | curr_rom_bank) < rom_banks && (((val & 0x1) << 8) | curr_rom_bank) < max_rom_banks) {
+	
 	switch_rom_bank(((val & 0x1) << 8) | curr_rom_bank, state);
       } else {
 	printf("DID NOT SWITCH\n");
