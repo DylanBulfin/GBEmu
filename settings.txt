@@ -6,7 +6,7 @@ WINDOW_HEIGHT=720
 WINDOW_WIDTH=800
 
 #Color settings
-COLOR_MODE=grey
+COLOR_MODE=green
 
 #Directory settings
 SAVE_DIRECTORY=saves/
