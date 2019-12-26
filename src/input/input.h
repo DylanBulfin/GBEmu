@@ -3,14 +3,14 @@
 #include <SDL2/SDL.h>
 
 typedef struct button_file{
-    uint8_t a:1;
-    uint8_t b:1;
-    uint8_t start:1;
-    uint8_t select:1;
-    uint8_t up:1;
-    uint8_t down:1;
-    uint8_t left:1;
-    uint8_t right:1;
+  uint8_t a:1;
+  uint8_t b:1;
+  uint8_t start:1;
+  uint8_t select:1;
+  uint8_t up:1;
+  uint8_t down:1;
+  uint8_t left:1;
+  uint8_t right:1;
 } buttons_t;
 
 extern SDL_Event event;

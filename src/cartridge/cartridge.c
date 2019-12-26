@@ -22,6 +22,7 @@ uint8_t mbc1_mode = 0;
 uint8_t ram_banks = 0;
 uint16_t rom_banks = 0;
 uint16_t ram_bank_size = 0;
+uint32_t ram_size = 0;
 
 uint16_t max_rom_banks = 0;
 uint8_t max_ram_banks = 0;
@@ -52,12 +53,12 @@ void write_ram_to_file() {
     return;
   }
   FILE *f = fopen(save_filename, "w");
-
-  fwrite(cartridge_ram, sizeof(uint8_t), ram_banks * ram_bank_size, f);
+  
+  fwrite(cartridge_ram, ram_size, sizeof(uint8_t), f);
 
   fclose(f);
 
-  printf("Wrote cart ram to file %s\n", save_filename);
+  printf("Wrote %d bytes of cart ram to file %s\n", ram_size, save_filename);
 }
 
 void read_ram_from_file(char *game, register_file_t *state) {
@@ -260,8 +261,9 @@ void set_mbc_values() {
   }
 
   if(has_ram && ram_banks != 0) {
-    cartridge_ram = malloc(ram_banks * ram_bank_size * sizeof(uint8_t));
-    printf("Allocating %d bytes for cartridge memory\n\n", ram_banks * ram_bank_size);
+    ram_size = ram_banks * ram_bank_size * sizeof(uint8_t);
+    cartridge_ram = malloc(ram_size);
+    printf("Allocating %d bytes for cartridge memory\n\n", ram_size);
   }
 
 }    

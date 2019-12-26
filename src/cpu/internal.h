@@ -184,7 +184,7 @@ extern int8_t di_pending;
 #define DEST_REG_CODE(opcode) ((opcode>>3)&0x7)
 #define SRC_REG(opcode)       decode_reg(SRC_REG_CODE(opcode),state)
 #define DEST_REG(opcode)      decode_reg(DEST_REG_CODE(opcode),state)
-#define REG_PAIR_CODE(opcode)      ((opcode>>4)&0x3)
+#define REG_PAIR_CODE(opcode) ((opcode>>4)&0x3)
 #define CONDITION(opcode)     ((opcode>>3)&0x3)
 
 

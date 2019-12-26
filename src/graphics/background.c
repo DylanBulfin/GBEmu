@@ -7,13 +7,15 @@
 void update_background(register_file_t *state) {
   if(!draw_next_frame) {
     for(uint8_t pixel_count = 0; pixel_count < SCREEN_WIDTH; pixel_count++) {
-      pixels[(MEM(LY) * SCREEN_WIDTH) + pixel_count] = BG_COLOR_RGB(0);
+      pixels[(MEM(LY) * SCREEN_WIDTH) + pixel_count] = COLORS[0];
+      pixel_codes[(MEM(LY) * SCREEN_WIDTH) + pixel_count] = 0;
     }
     return;
   }
   if(!BG_WINDOW_ENABLE) {
     for(uint8_t pixel_count = 0; pixel_count < SCREEN_WIDTH; pixel_count++) {
-      pixels[(MEM(LY) * SCREEN_WIDTH) + pixel_count] = BG_COLOR_RGB(0);
+      pixels[(MEM(LY) * SCREEN_WIDTH) + pixel_count] = COLORS[0];
+      pixel_codes[(MEM(LY) * SCREEN_WIDTH) + pixel_count] = 0;
     }
     return;
   }

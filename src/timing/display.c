@@ -36,6 +36,10 @@ void move_scanline(register_file_t *state) {
 
   if(MEM(LY) == 153) {
     draw_next_frame = LCD_ENABLE;
+    for(int i = 0; i < SCREEN_PIXELS; i++) {
+      pixels[i] = COLORS[0];
+      pixel_codes[i] = 0;
+    }
     MEM(LY) = 0;
   } else {
     if(MEM(LY) < 144) {
