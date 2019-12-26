@@ -11,21 +11,15 @@ void update_window(register_file_t *state) {
     return;
   }
 
-  printf("Tryna draw window at %d\n", WINDOW_Y);
-  
-
-  if(MEM(LY) < WINDOW_Y) {
-    
+  if(MEM(LY) < WINDOW_Y) {    
     return;
   }
 
   if(MEM(WX) < 0 || MEM(WX) > 166 || MEM(WY) < 0 || MEM(WY) > 143) {
-    printf("Window invisible, fix ur shit");
     return;
   }
 
   if(BG_ADDRESS_MODE == 1) {
-    printf("mode 1\n");
     //treats background as table of 32x32 tiles 
     uint8_t row = (MEM(LY) - WINDOW_Y) / TILE_HEIGHT_PIXELS;
 	
@@ -51,7 +45,6 @@ void update_window(register_file_t *state) {
     }
   }
   else {
-    printf("mode 2\n");
     uint8_t row = (MEM(LY) - WINDOW_Y) / TILE_HEIGHT_PIXELS;
 	
     uint16_t tile_addr = WINDOW_TILEMAP_ADDR + (row * BACKGROUND_WIDTH_TILES);
@@ -69,9 +62,8 @@ void update_window(register_file_t *state) {
       uint8_t tile_num_tc = TC(tile_num);
       tile_data_addr = TILE_DATA_ADDRESS0 - (tile_num_tc * TILE_SIZE_BYTES)
 	+ (y_line * TILE_LINE_SIZE_BYTES);
-      printf("tile_num: %x, base_addr: %x, new_addr: %x\n", tile_num, TILE_DATA_ADDRESS0, tile_data_addr);
     }
-
+    
     for(uint8_t x_pos = WINDOW_X; x_pos < SCREEN_WIDTH; x_pos++) {
       if(x_pos != WINDOW_X && (x_pos % TILE_WIDTH_PIXELS) == 0) {
 	tile_addr++;
@@ -87,7 +79,7 @@ void update_window(register_file_t *state) {
       }
 
       uint8_t color_index = COLOR_INDEX(tile_data_addr,x_pos);
-
+      
       pixel_codes[(MEM(LY) * SCREEN_WIDTH) + x_pos] = color_index;
       pixels[(MEM(LY) * SCREEN_WIDTH) + x_pos] = BG_COLOR_RGB(color_index);
     }

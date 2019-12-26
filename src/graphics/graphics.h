@@ -18,6 +18,7 @@
 #define TILE_HEIGHT_PIXELS 8
 #define TILE_DATA_ADDRESS1 0x8000
 #define TILE_DATA_ADDRESS0 0x9000
+#define TILE_DATA_ADDRESS0_TC 0x8800
 
 //LCDC bits
 #define BG_WINDOW_ENABLE (MEM(LCDC)&0x1)
@@ -49,7 +50,7 @@
 #define SPRITE_COLOR_CODE(index,palette_addr) ((MEM(palette_addr) >> (2 * index)) & 0x3)
 
 #define WINDOW_TILEMAP_ADDR ((WINDOW_TILEMAP) ? (0x9c00) : (0x9800))
-#define WINDOW_X (MEM(WX)-7)
+#define WINDOW_X (MEM(WX) > 7 ? (MEM(WX)-7) : 0)
 #define WINDOW_Y (MEM(WY))
 
 void setup_display();
