@@ -11,8 +11,13 @@ This is a basic Gameboy emulator. Sound is not implemented at all and not all ga
 
 Full playlist for ease of access - https://www.youtube.com/playlist?list=PLinm6frsc3SR5eT5ezNUtylG4ntSj3-oa
 
+## Packages
+Only Win32 package is available right now until I get a new hard drive and reinstall Linux, I'm afraid. Will add package for 64 bit Linux ASAP.
+
+Win32 - https://drive.google.com/open?id=1FjN35oSYPVvWA0Gz-M1omJld56OMzTSH
+
 ## Instructions for use
-If you want to test it with your own games, simply download the package for your specific OS (only Win32 is available right now until I get a new hard drive and reinstall Linux, I'm afraid). Extract it to some folder. Put your roms in the roms folder, ensure they all have the file extension .gb (if it comes with extension .gbc just rename, if it comes with any other extension it probably isn't a Game Boy game but feel free to try your luck). To run, open up a terminal in the folder and type "./emulator.exe <gamename>" (or "./emulator <gamename> on Linux), replacing <gamename> with the name of the rom without the filename. For example, running the command "./emulator.exe tetris" will use the file ./roms/tetris.gb (unless you change the roms folder in the settings file).
+If you want to test it with your own games, simply download the package for your specific OS. Extract it to some folder. Put your roms in the roms folder, ensure they all have the file extension .gb (if it comes with extension .gbc just rename, if it comes with any other extension it probably isn't a Game Boy game but feel free to try your luck). To run, open up a terminal in the folder and type "./emulator.exe <gamename>" (or "./emulator <gamename> on Linux), replacing <gamename> with the name of the rom without the filename. For example, running the command "./emulator.exe tetris" will use the file ./roms/tetris.gb (unless you change the roms folder in the settings file).
   
 Also, membrane keyboards have issues recognizing several key presses at once, if you run into issues with this it's not my emulator's fault, try changing the A and B buttons to Left Alt and Left Ctrl respectively.
   
