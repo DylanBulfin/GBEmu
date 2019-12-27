@@ -1,5 +1,5 @@
 # GBEmu
-This is a basic Gameboy emulator. Sound is not implemented at all and not all games work perfectly.
+This is a basic Gameboy emulator. Sound is not implemented at all and not all games work perfectly, but most I've tested do.
 
 ## Demo Videos
 * Tetris - https://www.youtube.com/watch?v=tNwYMBqwgAs
@@ -13,6 +13,8 @@ Full playlist for ease of access - https://www.youtube.com/playlist?list=PLinm6f
 
 ## Instructions for use
 If you want to test it with your own games, simply download the package for your specific OS (only Win32 is available right now until I get a new hard drive and reinstall Linux, I'm afraid). Extract it to some folder. Put your roms in the roms folder, ensure they all have the file extension .gb (if it comes with extension .gbc just rename, if it comes with any other extension it probably isn't a Game Boy game but feel free to try your luck). To run, open up a terminal in the folder and type "./emulator.exe <gamename>" (or "./emulator <gamename> on Linux), replacing <gamename> with the name of the rom without the filename. For example, running the command "./emulator.exe tetris" will use the file ./roms/tetris.gb (unless you change the roms folder in the settings file).
+  
+Also, membrane keyboards have issues recognizing several key presses at once, if you run into issues with this it's not my emulator's fault, try changing the A and B buttons to Left Alt and Left Ctrl respectively.
   
 ## Settings
 * FAST_FORWARD - Set to true or false, if set to true it doesn't wait between frame draws and will run significantly faster.
